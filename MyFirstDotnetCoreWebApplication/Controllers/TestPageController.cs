@@ -21,6 +21,7 @@ namespace MyFirstDotnetCoreWebApplication.Controllers
         public IActionResult Index()
         {
            var users= _Users.Users.ToList();
+           // users.Add(new UserDetails() { Age = "25", Name = "test", UserId = 2 });
             return View(users);
         }
     }
