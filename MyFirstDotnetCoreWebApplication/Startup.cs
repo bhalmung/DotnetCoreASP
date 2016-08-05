@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using MyFirstDotnetCoreWebApplication.Models;
 
 namespace MyFirstDotnetCoreWebApplication
 {
@@ -33,6 +35,9 @@ namespace MyFirstDotnetCoreWebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = @"Data Source=dev;Initial Catalog=DnCore;User ID=sa;Password=dev01";
+            services.AddDbContext<UserDetailsContext>(options => options.UseSqlServer(connection));
+
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 

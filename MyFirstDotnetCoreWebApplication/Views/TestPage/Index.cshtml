@@ -1,7 +1,18 @@
-﻿@{
+﻿@model IEnumerable< MyFirstDotnetCoreWebApplication.Models.UserDetails>
+
+
+@{
     ViewData["Title"] = "About Me!";
 }
 
 
 <h1>i Am a good person! 
     :)</h1>
+
+
+@foreach (var item in Model)
+{
+    <H1> Name :@item.Name </H1>
+    <h2> Age: @item.Age</h2>
+    <br />
+}
